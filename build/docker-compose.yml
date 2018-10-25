@@ -1,0 +1,23 @@
+version: "3.2"
+
+services:
+  build:
+    build: .
+
+    volumes:
+      - type: bind
+        source: ..
+        target: /source
+        read_only: true
+
+      - type: bind
+        source: ../target
+        target: /target
+
+      - type: bind
+        source: ../target/cache
+        target: /root/.cache
+
+      - type: bind
+        source: ../target/pkg
+        target: /go/pkg
